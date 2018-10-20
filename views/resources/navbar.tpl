@@ -180,7 +180,7 @@
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li><a id="id02" onclick="document.getElementById('id00').style.display='block'" style="width:auto; cursor:pointer"><span class="glyphicon glyphicon-log-in"></span> SING IN</a></li>
-        <li><a href="/register" id="id02.1" style="width:auto; cursor:pointer">SING UP</a></li>
+        <li><a id="id02.1" onclick="document.getElementById('id01').style.display='block'" style="width:auto; cursor:pointer">SING UP</a></li>
         <li><a id="id03" onclick='exit()' style="width:auto;" href="#"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
       </ul>
     </div>
@@ -195,6 +195,24 @@
         <label for="pass"><b>Password</b></label>
         <input type="password" placeholder="Enter Password" name="pass" required>
         <button class="loginbutton" type="submit">LOGIN</button>
+    </form>
+  </div>
+
+    <div id="id01" class="modal">
+    <form class="modal-content animate" action="/register" method="post">
+        <h2 style="text-align: center;">SING UP</h2>
+        <label for="uname"><b>Username</b></label>
+        <input type="text" placeholder="Enter Username" name="username" required>
+        <label for="uname"><b>Name</b></label>
+        <input type="text" placeholder="Enter Name" name="name" required>
+        <label for="psw"><b>Password</b></label>
+        <input type="password" placeholder="Enter Password" name="password" required>
+        <label for="psw"><b>Repit password</b></label>
+        <input type="password" placeholder="Repite Password" name="password2" required>
+        <label for="mail"><b>Email</b></label>
+        <input type="text" placeholder="Enter Email" name="email" required>
+        <p><input type="checkbox" name="terms" required> I accept the <u>Terms and Conditions</u></p>
+        <button class="loginbutton" type="submit">SING UP</button>
     </form>
   </div>
 
