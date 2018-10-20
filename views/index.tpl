@@ -7,7 +7,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="/static/css/bootstrap.min.css">
 </head>
-
+<style>
+  body {
+    background-image: url("static/img/background.gif");
+  }
+</style>
 <body>
 {{ template "resources/navbar.tpl" }}
   <div class="container">
