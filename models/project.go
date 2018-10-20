@@ -43,6 +43,16 @@ func (p Project) DeleteProject() error {
 	return DB.Delete(&p).Error
 }
 
+func IncreasePunctuation(id uint) error {
+	var aux Project
+	err := DB.First(&aux, id).Error
+	aux.Punctuation += 1
+	if err == nil {
+		return DB.Save(&aux).Error
+	}
+	return err
+}
+
 func GetProject(projectID uint) (Project, error) {
 	var p Project
 	err := DB.First(&p, projectID).Error
