@@ -33,6 +33,12 @@ func FindTagByID(id uint) (TAG, error) {
 	return aux, err
 }
 
+func FindTagByTagType(tt string) (TAG, error) {
+	var aux TAG
+	err := DB.Where("tagtype = ?", tt).First(&aux).Error
+	return aux, err
+}
+
 func (t TAG) UpdateTAG() error {
 	var aux TAG
 	DB.First(&aux, t.ID)
