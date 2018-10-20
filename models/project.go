@@ -43,8 +43,8 @@ func (p Project) DeleteProject() error {
 	return DB.Delete(&p).Error
 }
 
-func GetProject(projectID uint) Project {
+func GetProject(projectID uint) (Project, error) {
 	var p Project
-	DB.Table("projects").Where("id = ?", projectID).First(&p)
-	return p
+	err := DB.First(&p, projectID).Error
+	return p, err
 }
