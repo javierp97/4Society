@@ -19,5 +19,7 @@ func (c *CommentController) Post() {
 	com.UserID = uint(aux)
 	com.UserName = c.GetString("Name")
 	com.TimeStamp = time.Now()
+	aux, _ = c.GetInt("Project")
+	com.ProjectID = uint(aux)
 	com.CreateComment()
 }

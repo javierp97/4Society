@@ -17,6 +17,7 @@ func (c *ProjectController) Get() {
 	userID := session.Get("UserID")
 	if userID != nil {
 		c.Data["nam"] = session.Get("Name")
+		c.Data["UserID"] = userID
 	}
 	i, _ := strconv.Atoi(c.GetString("p"))
 	p, _ := models.GetProject(uint(i))
@@ -27,4 +28,6 @@ func (c *ProjectController) Get() {
 	c.Data["HumanSupport"] = p.HumanSupport
 	c.Data["MaterialSupport"] = p.MaterialSupport
 	c.Data["Image"] = p.Image
+	c.Data["ID"] = i
+	c.Data["Comments"] = models.GetComments(i)
 }
