@@ -45,6 +45,6 @@ func (p Project) DeleteProject() error {
 
 func GetProject(projectID uint) Project {
 	var p Project
-	DB.Table("projects").Where("id = ?", projectID).First(&p)
+	DB.First(&p, projectID)
 	return p
 }
