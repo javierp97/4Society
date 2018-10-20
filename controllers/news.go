@@ -4,12 +4,12 @@ import (
 	"github.com/astaxie/beego"
 )
 
-type MainController struct {
+type NewsController struct {
 	beego.Controller
 }
 
-func (c *MainController) Get() {
-	c.TplName = "index.tpl"
+func (c *NewsController) Get() {
+	c.TplName = "news.tpl"
 	session := c.StartSession()
 	userID := session.Get("UserID")
 	if userID != nil {

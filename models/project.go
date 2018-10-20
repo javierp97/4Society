@@ -14,8 +14,11 @@ type Project struct {
 	TAG1            string `valid:"-"`
 	TAG2            string `valid:"-"`
 	TAG3            string `valid:"-"`
-	SupportType     string `valid:"-"`
+	EconomicSupport bool   `valid:"-"`
+	MaterialSupport bool   `valid:"-"`
+	HumanSupport    bool   `valid:"-"`
 	IdCreator       uint   `valid:"-"`
+	Punctuation     uint   `valid:"="`
 }
 
 func (p *Project) CreateProject() uint {
@@ -38,4 +41,10 @@ func (p Project) UpdateProject() error {
 
 func (p Project) DeleteProject() error {
 	return DB.Delete(&p).Error
+}
+
+func GetProject(projectID uint) Project {
+	var p Project
+	DB.Table("projects").Where("project_id = ?", projectID).First(&p)
+	return p
 }
