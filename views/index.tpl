@@ -15,7 +15,11 @@
 <body>
 {{ template "resources/navbar.tpl" }}
   <div class="container">
-   
+    <div class= "row">
+      <div class="col-md-12">
+        <h1 style="font-family: logo; color:#385b8c;text-align:center; font-size-adjust: 1.50;">4Society</h1>
+      </div>
+    </div>
   </div>
   <script src="/static/js/reload.min.js"></script>
 </body>
