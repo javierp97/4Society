@@ -152,6 +152,10 @@
       width: 100%;
     }
   }
+    @font-face {
+        font-family: logo;
+        src: url(/static/fonts/Rommantis.ttf);
+    }
 
 
 </style>
@@ -161,7 +165,7 @@
   <div class="container">
     <div class="navbar-header">
       <b>
-        <a class="navbar-brand" style="color:#385b8c;font-size-adjust: 0.80;" href="/">4Society</a>
+        <a class="navbar-brand" style="color:#385b8c;font-size-adjust: 1.20;font-weight: normal;  font-family: logo;" href="/">4Society</a>
       </b>
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
             <span class="icon-bar"></span>
