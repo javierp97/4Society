@@ -8,7 +8,7 @@ import (
 
 type Comment struct {
 	gormTools.Model `valid:"-"`
-	ProjectID       int       `valid:"-"`
+	ProjectID       uint      `valid:"-"`
 	Title           string    `valid:"-"`
 	Comment         string    `valid:"-"`
 	UserID          uint      `valid:"-"`
