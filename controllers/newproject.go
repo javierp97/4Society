@@ -46,6 +46,8 @@ func (c *NewProjectController) RetrieveInfoNewProject() {
 	fmt.Println(select1, select2, select3)
 	image := c.GetString("Image")
 	s := image[12:]
+	var path string
+	path = "/static/img/" + s
 	println("viene la path de la imagen")
 	fmt.Println(s)
 	Checkbox1, _ := c.GetBool("Checkbox1")
@@ -58,7 +60,7 @@ func (c *NewProjectController) RetrieveInfoNewProject() {
 	proyecto.HumanSupport = Checkbox3
 	proyecto.Date = when
 	proyecto.IdCreator = 1
-	proyecto.Image = s
+	proyecto.Image = path
 	proyecto.MaterialSupport = Checkbox2
 	proyecto.Place = where
 	proyecto.TAG1 = select1
