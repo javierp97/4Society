@@ -55,9 +55,12 @@ body {
 <body>
   {{ template "resources/navbar.tpl" }}
   <div class="container" style="background-color:white; box-shadow: 5px 20px 30px rgba(0,0,0,0.2); height: 100%;">
-    <div class="col-sm-12" style="border-bottom:1px solid #ededed; color:gray;">
+    <div class="col-sm-11" style="border-bottom:1px solid #ededed; color:gray;">
       <span class="glyphicon glyphicon-search searchButton"></span> 
       <input type="text" placeholder="BUSCAR..." name="search" style="border:none">
+    </div>
+    <div class="col-sm-1">
+        <a href="/newproject" class="loginbutton"> NEW </a>
     </div>
       {{range .Projects}}
       <div style="padding: 10px;" class="col-sm-6 col-xs-12">

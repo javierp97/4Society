@@ -45,7 +45,7 @@
   <div class="container">
     <div class= "row">
       <div class="col-md-12">
-        <h1 style="font-family: logo; color:#385b8c;text-align:center; font-size-adjust: 1.50;">4Society</h1>
+        <h1 style="font-family: logo; color:#385b8c;text-align:center; font-size-adjust: 1.50;">4Society</h1><br>
         <h2 style="text-align: center">Make team, change the world</h2>
       </div>
     </div>
