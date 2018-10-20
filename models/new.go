@@ -21,10 +21,16 @@ func (n *New) CreateNew() uint {
 	return n.ID
 }
 
-func ReadAllNew() ([]New, error) {
+func FindAllNew() ([]New, error) {
 	var news []New
 	err := DB.Find(&news).Error
 	return news, err
+}
+
+func FindNewByID(id uint) (New, error) {
+	var aux New
+	err := DB.First(&aux, id).Error
+	return aux, err
 }
 
 func (n New) UpdateNew() error {
