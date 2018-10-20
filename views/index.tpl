@@ -87,8 +87,26 @@
       </div>
 
   </div>
-  <script src="/static/js/reload.min.js"></script> 
-</body>
+<br>
+    <footer style="background-color:white; box-shadow: 2px 2px 46px 2px rgba(0,0,0,0.10);border-width:3px;border-color:black; text-align:center">
+        <div class="container">
+            <div class="col-sm-4">
+                <small style="color:light-gray; font-weight: bold;">ABOUT</small>
+                <p>Who we are?</p>
+                <p>Impact</p>
+            </div>
+            <div class="col-sm-4">
+                <small style="color:light-gray; font-weight: bold;">CONTACT</small>
+                <p>contact@4society.org</p>
+                <p>+34 666 66 66</p>
+            </div>
+            <div class="col-sm-4">
+                <small style="color:light-gray; font-weight: bold;">SOCIAL</small>
+                <p>IG: @4society</p>
+                <p>TW: @4society</p>
+            </div>
+        </div>
+    </footer> </body>
 <script>
   if ({{.nam}} != null){
     document.getElementById("id02").style.display = "none";
