@@ -20,6 +20,13 @@ func ReadAllTags() ([]TAG, error) {
 	return tags, err
 }
 
+func ExistsTag(tag string) (bool, error) {
+	var aux TAG
+	err := DB.Where("Tagtype = ?", tag).First(&aux).Error
+	exists := (aux.Tagtype != tag)
+	return exists, err
+}
+
 func (t TAG) UpdateTAG() error {
 	var aux TAG
 	DB.First(&aux, t.ID)

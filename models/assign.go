@@ -7,7 +7,7 @@ import (
 type Assign struct {
 	gormTools.Model `valid:"-"`
 	Userid          uint `valid:"-"`
-	TAGid           uint `valid:"-"`
+	Tagid           uint `valid:"-"`
 }
 
 func (a *Assign) CreateAssign() uint {
@@ -29,7 +29,7 @@ func FindAssignByUserid(iduser uint) ([]Assign, error) {
 
 func FindAssignByTagId(idtag uint) ([]Assign, error) {
 	var assigns []Assign
-	err := DB.Where("TAGid = ?", idtag).Find(&assigns).Error
+	err := DB.Where("Tagid = ?", idtag).Find(&assigns).Error
 	return assigns, err
 }
 
@@ -41,7 +41,7 @@ func FindAssignByID(id uint) (Assign, error) {
 
 func FindAssignByTagUser(iduser uint, idtag uint) (Assign, error) {
 	var aux Assign
-	err := DB.Where("Userid = ?, TAGid = ?", iduser, idtag).First(&aux).Error
+	err := DB.Where("Userid = ? AND Tagid = ?", iduser, idtag).First(&aux).Error
 	return aux, err
 }
 

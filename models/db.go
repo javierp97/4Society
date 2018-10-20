@@ -24,6 +24,18 @@ func LoadGoLibDB(db *gorm.DB) {
 	println("...Automigrate User...")
 	DB.AutoMigrate(&User{})
 	println("Success!")
+	println("...Automigrate Assign...")
+	DB.AutoMigrate(&Assign{})
+	println("Success!")
+	println("...Automigrate Project...")
+	DB.AutoMigrate(&Project{})
+	println("Success!")
+	println("...Automigrate New...")
+	DB.AutoMigrate(&New{})
+	println("Success!")
+	println("...Automigrate Tag...")
+	DB.AutoMigrate(&TAG{})
+	println("Success!")
 
 }
 
