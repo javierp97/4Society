@@ -8,6 +8,9 @@
   <link rel="stylesheet" href="/static/css/bootstrap.min.css">
 </head>
 <style>
+body {
+    background-image: url("static/img/background.gif");
+  }
   .imgtop {
 		position: relative;
 		height: 175px;
@@ -51,22 +54,22 @@
 </style>
 <body>
   {{ template "resources/navbar.tpl" }}
-  <div class="container">
+  <div class="container" style="background-color:white; box-shadow: 5px 20px 30px rgba(0,0,0,0.2); height: 100%;">
     <div class="col-sm-12" style="border-bottom:1px solid #ededed; color:gray;">
       <span class="glyphicon glyphicon-search searchButton"></span> 
       <input type="text" placeholder="BUSCAR..." name="search" style="border:none">
     </div>
       {{range .Projects}}
-      <div style="padding: 10px;" class="col-sm-12 col-xs-12">
+      <div style="padding: 10px;" class="col-sm-6 col-xs-12">
         <div class="card">
           <form action="/project" method="get" >
             <div class="imgtop" style="background-image:url('{{.Image}}')"></div>
             <div class="imgbottom" ><center>
               <h3><button type="submit" name="p" value='{{.ID}}'>{{.Title}}</button></h3>
               <small><p style="text-transform: uppercase; color: gray">{{.TAG1}} {{.TAG2}} {{.TAG3}}</p></small>
-              <b>{{.Punctuation}}</b>
+              <b>{{.Punctuation}} <span class="glyphicon glyphicon-heart-empty" style="color:gray"></span> <span class="glyphicon glyphicon-heart" style="color:red"></span></b>
             </center></div>
-          </form>
+          </form> 
         </div>
       </div>
       {{end}}

@@ -29,5 +29,6 @@ func (c *ProjectController) Get() {
 	c.Data["MaterialSupport"] = p.MaterialSupport
 	c.Data["Image"] = p.Image
 	c.Data["ID"] = i
+	c.Data["Place"] = p.Place
 	c.Data["Comments"] = models.GetComments(i)
 }

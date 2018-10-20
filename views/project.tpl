@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
   <head>
-    <title>{{.Restaurant.Name}}</title>
+    <title>{{.Title}}</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="/static/css/bootstrap.min.css">
@@ -148,21 +148,14 @@
       <a href="/register">SING IN TO COMMENT</a>
     </div>
     <div id="comBox" class="container">
-       <form action="/comment" method="post">
-          <fieldset>
-            <legend>Leave a comment</legend>
-            Title:<br>
-            <input type="text" name="Title"><br>
-            Comment:<br>
-            <input type="text" name="Comment">
-            <input type="hidden" name="Name" value="{{.nam}}">
-            <input type="hidden" name="UserID" value="{{.UserID}}">
-            <input type="hidden" name="Project" value='{{.ID}}'>
-            <button class="loginbutton" type="submit">Send Comment</button>
-          </fieldset>
-        </form> 
+        <legend>Leave a comment</legend>
+        Title:<br>
+        <input type="text" id="Title"><br>
+        Comment:<br>
+        <input type="text" id="Comment">
+        <button class="loginbutton" onclick="sendComment()">Send Comment</button>
     </div>
-    <div class="container">
+    <div class="container" id="commentsBox">
       {{range .Comments}}
         <div class="col-sm-12">
           <h3>{{.Title}}</h3>
@@ -186,6 +179,15 @@
     document.getElementById("comBox").hidden = true;
     document.getElementById("comReg").hidden = false;
   }
+
+    function sendComment() {
+        var xhttp = new XMLHttpRequest();
+        xhttp.open("POST", "/comment", true);
+        xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        var c = "Title=" + document.getElementById("Title").value + "&Comment=" + document.getElementById("Comment").value + '&Name={{.nam}}&UserID={{.UserID}}&Project={{.ID}}' ;
+        xhttp.send(c);
+        alert('Comment submited');location.reload();
+    }
 </script>
 
 </html>
