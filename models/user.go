@@ -15,25 +15,6 @@ type User struct {
 	Email           string `valid:"-"`
 }
 
-type RestaurantUser struct {
-	gormTools.Model `valid:"-"`
-	RestaurantID    int    `gorm:"unique"`
-	Password        string `valid:"-"`
-}
-
-func RestaurantLogin(id int, password string) (uint, error) {
-	var r RestaurantUser
-	DB.Where("restaurant_id = ?", id).First(&r)
-	if r.RestaurantID == 0 {
-		return 0, errors.New("Invalid data")
-	} else {
-		if checkPassword(password, r.Password) {
-			return 0, errors.New("Invalid data")
-		}
-	}
-	return r.ID, nil
-}
-
 func Login(user string, password string) (uint, error) {
 	var u User
 	DB.Where("username = ?", user).First(&u)
