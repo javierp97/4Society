@@ -19,7 +19,7 @@ func (c *ProjectController) Get() {
 		c.Data["nam"] = session.Get("Name")
 	}
 	i, _ := strconv.Atoi(c.GetString("p"))
-	p := models.GetProject(uint(i))
+	p, _ := models.GetProject(uint(i))
 	c.Data["Title"] = p.Title
 	c.Data["Date"] = p.Date
 	c.Data["Description"] = p.Description
