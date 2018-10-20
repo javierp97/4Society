@@ -18,4 +18,5 @@ func init() {
 	beego.Router("/comment", &controllers.CommentController{})
 	beego.Router("/newproject", &controllers.NewProjectController{})
 	beego.Router("/retrieveinfonewproject", &controllers.NewProjectController{}, "post:RetrieveInfoNewProject")
+	//
 }

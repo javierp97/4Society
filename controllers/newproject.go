@@ -46,4 +46,5 @@ func (c *NewProjectController) RetrieveInfoNewProject() {
 	//println(projecttitle, description, tags, time)
 	//c.TplName = "projects.tpl"
 	//funciones de insertar en la base de datos
+	//
 }

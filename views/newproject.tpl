@@ -86,5 +86,7 @@ body{
         xhttp.send(c);
         alert('Project submited');
         window.location = "/projects";
+        
+        
     }
 </script>
