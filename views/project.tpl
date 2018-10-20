@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html lang="es">
   <head>
-    <title>{{.Restaurant.Name}}</title>
+    <title>{{.Title}}</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="/static/css/bootstrap.min.css">
   </head>
   <style>
+  body {
+    background-image: url("static/img/background.gif");
+  }
 /* Popup container - can be anything you want */
 .popup {
     position: relative;
@@ -128,50 +131,70 @@
 </style>
   <body>
     {{ template "resources/navbar.tpl" }}
-    <div class="container" style="border-bottom: 1px solid  lightgray; ">
-      <div class="col-sm-3">         
-        <img class="img-responsive" src='{{.Image}}'>
-      </div>
-      <div class="col-sm-9">         
-        <h1>{{.Title}}</h1>
-        <p>{{.Place}}</p>
-        <p>{{.Date}}</p>
-      </div>
-    </div>
+    <div class="container" style="background-color:white; box-shadow: 5px 20px 30px rgba(0,0,0,0.2); height: 100%;">
+        <div class="col-sm-12" style="border-bottom: 1px solid  lightgray; ">
+            <div class="col-sm-3">         
+                <img class="img-responsive" src='{{.Image}}'>
+            </div>
+            <div class="col-sm-9">         
+                <h1>{{.Title}}</h1>
+                <p>{{.Place}}</p>
+                <p>{{.Date}}</p>
+                <br><br><br>
+            </div>
+        </div>
 
-    <div class="container">
-        <div class="row">
-            <p>{{.Description}}</p>
+        <div class="container">
+            <div class="col-sm-12">
+                <br><br>
+                <p>{{.Description}}</p>
+            </div>
+        </div>
+        <div id="comReg" class="container">
+        <a href="/register">SING IN TO COMMENT</a>
+        </div>
+        <div id="comBox" class="container">
+            <div class="col-sm-12">
+                <legend>Leave a comment</legend>
+                Title:<br>
+                <input type="text" id="Title"><br>
+                Comment:<br>
+                <input type="text" id="Comment">
+                <button class="loginbutton" onclick="sendComment()">Send Comment</button>
+            </div>
+        </div>
+        <div class="container" id="commentsBox">
+        {{range .Comments}}
+            <div class="col-sm-12">
+            <h3>{{.Title}}</h3>
+            <h6 style="color: gray;">{{.Name}}</h6>
+            <p>{{.Comment}}</p>
+            </div>
+        {{end}}
         </div>
     </div>
-    <div id="comReg" class="container">
-      <a href="/register">SING IN TO COMMENT</a>
-    </div>
-    <div id="comBox" class="container">
-       <form action="/comment" method="post">
-          <fieldset>
-            <legend>Leave a comment</legend>
-            Title:<br>
-            <input type="text" name="Title"><br>
-            Comment:<br>
-            <input type="text" name="Comment">
-            <input type="hidden" name="Name" value="{{.nam}}">
-            <input type="hidden" name="UserID" value="{{.UserID}}">
-            <input type="hidden" name="Project" value='{{.ID}}'>
-            <button class="loginbutton" type="submit">Send Comment</button>
-          </fieldset>
-        </form> 
-    </div>
-    <div class="container">
-      {{range .Comments}}
-        <div class="col-sm-12">
-          <h3>{{.Title}}</h3>
-          <h6 style="color: gray;">{{.Name}}</h6>
-          <p>{{.Comment}}</p>
+    <br>
+    <footer style="background-color:white; box-shadow: 2px 2px 46px 2px rgba(0,0,0,0.10);border-width:3px;border-color:black; text-align:center">
+        <div class="container">
+            <div class="col-sm-4">
+                <small style="color:light-gray; font-weight: bold;">ABOUT</small>
+                <p>Who we are?</p>
+                <p>Impact</p>
+            </div>
+            <div class="col-sm-4">
+                <small style="color:light-gray; font-weight: bold;">CONTACT</small>
+                <p>contact@4society.org</p>
+                <p>+34 666 66 66</p>
+            </div>
+            <div class="col-sm-4">
+                <small style="color:light-gray; font-weight: bold;">SOCIAL</small>
+                <p>IG: @4society</p>
+                <p>TW: @4society</p>
+            </div>
         </div>
-      {{end}}
-    </div>
+    </footer> 
   </body>
+  
 <script>
   if ({{.nam}} != null){
     document.getElementById("id02").style.display = "none";
@@ -186,6 +209,15 @@
     document.getElementById("comBox").hidden = true;
     document.getElementById("comReg").hidden = false;
   }
+
+    function sendComment() {
+        var xhttp = new XMLHttpRequest();
+        xhttp.open("POST", "/comment", true);
+        xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        var c = "Title=" + document.getElementById("Title").value + "&Comment=" + document.getElementById("Comment").value + '&Name={{.nam}}&UserID={{.UserID}}&Project={{.ID}}' ;
+        xhttp.send(c);
+        alert('Comment submited');location.reload();
+    }
 </script>
 
 </html>
