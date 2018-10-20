@@ -150,6 +150,14 @@
                 <p>{{.Description}}</p>
             </div>
         </div>
+        
+
+        <div class="container">
+                <div class="col-sm-12" style="height:250px; left:-2.5%">
+                    {{ template "map.tpl" }}
+                </div>
+        </div>
+
         <div id="comReg" class="container">
         <a href="/register">SING IN TO COMMENT</a>
         </div>
@@ -163,6 +171,7 @@
                 <button class="loginbutton" onclick="sendComment()">Send Comment</button>
             </div>
         </div>
+
         <div class="container" id="commentsBox">
         {{range .Comments}}
             <div class="col-sm-12">

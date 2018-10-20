@@ -1,8 +1,4 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset='utf-8' />
-    <title>Map</title>
+
     <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
     <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.44.2/mapbox-gl.js'></script>
     <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.44.2/mapbox-gl.css' rel='stylesheet' />
@@ -22,12 +18,7 @@
             border-radius: 50%;
             cursor: pointer;
         }
-    </style>
-</head>
-<body>
-<style>
-
-    
+ 
 
 
     .geocoder {
@@ -61,11 +52,6 @@
 <!--  the map -->
 <div id='map'></div>
 <!-- geocoder search input -->
-
-<!-- left side instructions -->
-<div id='instructions'>
-    
-</div>
 
 
 <script>
@@ -109,6 +95,3 @@
 
    
 </script>
-
-</body>
-</html>
