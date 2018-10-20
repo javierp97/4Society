@@ -24,7 +24,7 @@ body {
 	}
   .imgbottom {
 		position: relative;
-		height: 100px;
+		height: 125px;
 		overflow: hidden;
 		background-repeat: no-repeat;
 		background-size: cover;
@@ -67,7 +67,7 @@ body {
             <div class="imgbottom" ><center>
               <h3><button type="submit" name="p" value='{{.ID}}'>{{.Title}}</button></h3>
               <small><p style="text-transform: uppercase; color: gray">{{.TAG1}} {{.TAG2}} {{.TAG3}}</p></small>
-              <b>{{.Punctuation}} <span class="glyphicon glyphicon-heart-empty" style="color:gray"></span> <span class="glyphicon glyphicon-heart" style="color:red"></span></b>
+              <b>{{.Punctuation}}<span class="glyphicon glyphicon-heart" style="color:red"></span></b>
             </center></div>
           </form> 
         </div>

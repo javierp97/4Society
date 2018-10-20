@@ -55,7 +55,7 @@
         <div class="card">
           <form action="/project" method="get" >
             <div class="imgtop" style="background-image:url('http://lanacion.cl/wp-content/uploads/2018/02/Aton_157510.jpg')"></div>
-            <div class="imgbottom" ><center>
+            <div class="imgbottom" style="height: 150px;"><center>
               <h3><button type="submit" name="p" value='4'>Let's found my daughter</button></h3>
               <small><p style="text-transform: uppercase; color: gray">FOUND DISAPEARED TEENAGER</p></small>
               <b>81 <span class="glyphicon glyphicon-heart" style="color:red"></span></b>
