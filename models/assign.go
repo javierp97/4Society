@@ -39,6 +39,13 @@ func FindAssignByID(id uint) (Assign, error) {
 	return aux, err
 }
 
+func ExistsAssign(iduser uint, idtag uint) (bool, error) {
+	var aux Assign
+	err := DB.Where("Userid = ? AND Tagid = ?", iduser, idtag).First(&aux).Error
+	exists := aux.ID > 0
+	return exists, err
+}
+
 func FindAssignByTagUser(iduser uint, idtag uint) (Assign, error) {
 	var aux Assign
 	err := DB.Where("Userid = ? AND Tagid = ?", iduser, idtag).First(&aux).Error
