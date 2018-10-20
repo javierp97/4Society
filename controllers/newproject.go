@@ -66,4 +66,5 @@ func (c *NewProjectController) RetrieveInfoNewProject() {
 	proyecto.TAG3 = select3
 	proyecto.Title = title
 	proyecto.CreateProject()
+
 }

@@ -90,6 +90,5 @@ body{
         alert('Project submited');
         window.location = "/projects";
         
-
     }
 </script>
