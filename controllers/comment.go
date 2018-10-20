@@ -2,6 +2,7 @@ package controllers
 
 import (
 	"4Society/models"
+	"time"
 
 	"github.com/astaxie/beego"
 )
@@ -11,11 +12,12 @@ type CommentController struct {
 }
 
 func (c *CommentController) Post() {
-	c.TplName = "a.tpl"
-	n := c.GetString("Name")
-	t := c.GetString("Title")
-	co := c.GetString("Comment")
-	u, _ := c.GetInt("UserID")
-	r, _ := c.GetInt("RestaurantID")
-	models.SetComment(r, t, co, u, n)
+	var com models.Comment
+	com.Title = c.GetString("Title")
+	com.Comment = c.GetString("Comment")
+	aux, _ := c.GetInt("UserID")
+	com.UserID = uint(aux)
+	com.UserName = c.GetString("Name")
+	com.TimeStamp = time.Now()
+	com.CreateComment()
 }

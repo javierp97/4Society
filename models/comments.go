@@ -11,7 +11,7 @@ type Comment struct {
 	ProjectID       int       `valid:"-"`
 	Title           string    `valid:"-"`
 	Comment         string    `valid:"-"`
-	UserID          int       `valid:"-"`
+	UserID          uint      `valid:"-"`
 	UserName        string    `valid:"-"`
 	TimeStamp       time.Time `valid:"-"`
 }
@@ -33,13 +33,7 @@ func GetComments(i int) []CommentData {
 	return rList
 }
 
-func SetComment(rid int, tit string, comm string, uid int, nam string) {
-	var a Comment
-	a.ProjectID = rid
-	a.Title = tit
-	a.Comment = comm
-	a.UserID = uid
-	a.UserName = nam
-	a.TimeStamp = time.Now()
-	DB.Create(&a)
+func (c *Comment) CreateComment() uint {
+	DB.Create(c)
+	return c.ID
 }
