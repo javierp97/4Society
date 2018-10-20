@@ -43,14 +43,26 @@ func (p Project) DeleteProject() error {
 	return DB.Delete(&p).Error
 }
 
-func IncreasePunctuation(id uint) error {
+func IncreasePunctuation(uid uint, id uint) (error, string) {
 	var aux Project
 	err := DB.First(&aux, id).Error
-	aux.Punctuation += 1
-	if err == nil {
-		return DB.Save(&aux).Error
+	if err != nil {
+		return err, ""
 	}
-	return err
+	b, _ := ExistsLike(uid, id)
+	text := "Liked"
+	if !b {
+		var like Like
+		like.Projectid = id
+		like.Userid = uid
+		like.CreateLike()
+		aux.Punctuation += 1
+		text = "Don't liked"
+		if err == nil {
+			return DB.Save(&aux).Error, text
+		}
+	}
+	return err, text
 }
 
 func GetProject(projectID uint) (Project, error) {
