@@ -65,6 +65,9 @@ body{
         </select>
         <label>Choose your 3rd tag</label>
         </div>
+        <label><input type="checkbox" id="cbox1" value="first_checkbox">Economic Support</label><br>
+        <label><input type="checkbox" id="cbox2" value="second_checkbox">Material Support</label><br>
+        <label><input type="checkbox" id="cbox3" value="third_checkbox">Human Support</label><br>
         <button onclick="sendProject()" class="loginbutton">CREATE</button>
 </div>
     </body>
@@ -82,11 +85,11 @@ body{
         var xhttp = new XMLHttpRequest();
         xhttp.open("POST", "/retrieveinfonewproject", true);
         xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-        var c = "Title=" + document.getElementById("Title").value + "&Description=" + document.getElementById("Description").value + "&Where=" + document.getElementById("Where").value + "&When=" + document.getElementById("When").value + "&Select1=" + document.getElementById("Select1").value + "&Select2=" + document.getElementById("Select2").value + "&Select3=" + document.getElementById("Select3").value + "&Image=" + document.getElementById("Image").value +"&ImageB64=" + $('#Image').attr('value', '');
+        var c = "Title=" + document.getElementById("Title").value + "&Description=" + document.getElementById("Description").value + "&Where=" + document.getElementById("Where").value + "&When=" + document.getElementById("When").value + "&Select1=" + document.getElementById("Select1").value + "&Select2=" + document.getElementById("Select2").value + "&Select3=" + document.getElementById("Select3").value + "&Image=" + document.getElementById("Image").value +"&ImageB64=" + $('#Image').attr('value', '')+ "&Checkbox1=" + document.getElementById("cbox1").value + "&Checkbox2=" + document.getElementById("cbox2").value + "&Checkbox3=" + document.getElementById("cbox3").value;
         xhttp.send(c);
         alert('Project submited');
         window.location = "/projects";
         
-        
+
     }
 </script>
