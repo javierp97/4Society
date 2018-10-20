@@ -21,6 +21,18 @@ func ReadAllAssign() ([]Assign, error) {
 	return assigns, err
 }
 
+func FindAssignByUserid(iduser uint) ([]Assign, error) {
+	var assigns []Assign
+	err := DB.Where("Userid = ?", iduser).Find(&assigns).Error
+	return assigns, err
+}
+
+func FindAssignByTagId(idtag uint) ([]Assign, error) {
+	var assigns []Assign
+	err := DB.Where("TAGid = ?", idtag).Find(&assigns).Error
+	return assigns, err
+}
+
 func (a Assign) UpdateAssign() error {
 	var aux Assign
 	DB.First(&aux, a.ID)
