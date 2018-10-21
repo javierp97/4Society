@@ -16,7 +16,7 @@ func SendMailPass(email string) {
 
 	receiverString := email
 
-	mg := mailgun.NewMailgun("pol.gil.hernandez", "a527a67d802dd9016a5fdaa8ab85a63f-a3d67641-ad015044", "pubkey-a6629f6402b39ed733b3a3fe4e2c4f5b")
+	mg := mailgun.NewMailgun("sandbox2c4eef234821463a8fb294cea5ab11bb.mailgun.org", "a527a67d802dd9016a5fdaa8ab85a63f-a3d67641-ad015044", "pubkey-a6629f6402b39ed733b3a3fe4e2c4f5b")
 
 	sendMessage(mg, sender, "Confirm mail", "SUCCESS", receiverString)
 
