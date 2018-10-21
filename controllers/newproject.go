@@ -18,6 +18,7 @@ func (c *NewProjectController) Get() {
 		c.Data["UserID"] = userID
 	}
 	a, _ := models4.ReadAllTags()
+	c.Data["tags"] = a
 	c.TplName = "newproject.tpl"
 }
 
@@ -39,7 +40,6 @@ func (c *NewProjectController) RetrieveInfoNewProject() {
 	s := image[12:]
 	var path string
 	path = "/static/img/" + s
-
 	Checkbox1, _ := c.GetBool("Checkbox1")
 	Checkbox2, _ := c.GetBool("Checkbox2")
 	Checkbox3, _ := c.GetBool("Checkbox3")
