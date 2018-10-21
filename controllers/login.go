@@ -26,7 +26,8 @@ func (this *LoginController) Post() {
 		session.Set("UserID", id)
 		session.Set("Username", username)
 		session.Set("Name", models.GetName(id))
-		println("loged in")
+		print(username)
+		println(" loged in")
 		this.Redirect("/", 302)
 	} else {
 		fmt.Println(err)

@@ -19,26 +19,26 @@ var err error
 func LoadGoLibDB(db *gorm.DB) {
 
 	DB = db
-	println("Starting automigrate...")
+	("Starting automigrate...")
 
-	println("...Automigrate User...")
+	("...Automigrate User...")
 	DB.AutoMigrate(&User{})
-	println("Success!")
-	println("...Automigrate Assign...")
+	("Success!")
+	("...Automigrate Assign...")
 	DB.AutoMigrate(&Assign{})
-	println("Success!")
-	println("...Automigrate Project...")
+	("Success!")
+	("...Automigrate Project...")
 	DB.AutoMigrate(&Project{})
-	println("Success!")
-	println("...Automigrate New...")
+	("Success!")
+	("...Automigrate New...")
 	DB.AutoMigrate(&New{})
-	println("Success!")
-	println("...Automigrate Tag...")
+	("Success!")
+	("...Automigrate Tag...")
 	DB.AutoMigrate(&TAG{})
-	println("Success!")
-	println("...Automigrate Comments...")
+	("Success!")
+	("...Automigrate Comments...")
 	DB.AutoMigrate(&Comment{})
-	println("Success!")
+	("Success!")
 
 }
 
@@ -46,7 +46,7 @@ func CreateGoLibDB() *gorm.DB {
 	var mysqlConnect bytes.Buffer
 
 	mysqluser := beego.AppConfig.String("mysqluser")
-	fmt.Println("mysqluser:" + mysqluser)
+	fmt.("mysqluser:" + mysqluser)
 	mysqlConnect.WriteString(mysqluser)
 
 	mysqlConnect.WriteString(":")
@@ -64,7 +64,7 @@ func CreateGoLibDB() *gorm.DB {
 	if mysqlhost == "" {
 		mysqlhost = beego.AppConfig.String("mysqlhost")
 	}
-	fmt.Println("mysqlhost:" + mysqlhost)
+	fmt.("mysqlhost:" + mysqlhost)
 
 	mysqlConnect.WriteString(mysqlhost)
 
@@ -72,11 +72,11 @@ func CreateGoLibDB() *gorm.DB {
 	if mysqlport == "" {
 		mysqlport = "3306"
 	}
-	fmt.Println("mysqlport:" + mysqlport)
+	fmt.("mysqlport:" + mysqlport)
 	mysqlConnect.WriteString(":" + mysqlport + ")/")
 
 	mysqldb := beego.AppConfig.String("mysqldb")
-	fmt.Println("mysqldb:" + mysqldb)
+	fmt.("mysqldb:" + mysqldb)
 
 	mysqlConnect.WriteString(mysqldb)
 	mysqlConnect.WriteString("?charset=utf8&parseTime=True&loc=Local")
@@ -85,9 +85,9 @@ func CreateGoLibDB() *gorm.DB {
 	db, err = gorm.Open("mysql", mysqlConnect.String())
 
 	if err != nil {
-		fmt.Println("Failed to connect database " + err.Error())
+		fmt.("Failed to connect database " + err.Error())
 
-		fmt.Println("Trying to create a database: " + mysqldb)
+		fmt.("Trying to create a database: " + mysqldb)
 
 		if mErr, ok := err.(*mysql.MySQLError); ok && mErr.Number == 1049 {
 			err = create(mysqluser, mysqlpass, mysqlhost, mysqlport, mysqldb)
@@ -116,7 +116,7 @@ func create(mysqluser, mysqlpass, mysqlhost, mysqlport, mysqldb string) error {
 	db, err := gorm.Open("mysql", strings.Join(mysqlConnect, ""))
 
 	if err == nil {
-		fmt.Println("CREATE DATABASE " + mysqldb)
+		fmt.("CREATE DATABASE " + mysqldb)
 		err = db.Exec("CREATE DATABASE " + mysqldb).Error
 	}
 
