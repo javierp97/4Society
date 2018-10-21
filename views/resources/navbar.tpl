@@ -173,7 +173,7 @@
             <span class="icon-bar"></span>                        
           </button>
     </div>
-    <div class="collapse navbar-collapse">
+    <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
         <li><a href="/projects">PROJECTS</a></li>
         <li><a href="/news">NEWS</a></li>
